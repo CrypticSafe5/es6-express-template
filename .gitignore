@@ -1,5 +1,8 @@
 # ignore
 logs/*
 node_modules/*
+.DS_Store
+dev/*
+dist/*
 
 # keep
