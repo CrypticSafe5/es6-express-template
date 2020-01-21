@@ -5,9 +5,9 @@
   "main": "./dist/app.js",
   "scripts": {
     "test": "jest",
-    "clean": "rimraf /dev && rimraf /dist && rimraf /node_modules && rimraf /package-lock.json && npm i",
-    "dev": "rimraf /dev && babel -d /dev /src",
-    "prod": "rimraf /dist && babel --minified -d /dist /src"
+    "clean": "(rimraf ./dev/ && rimraf ./dist/ && rimraf ./package-lock.json && rimraf ./node_modules/ && npm i) || npm i",
+    "dev": "rimraf ./dev/ && babel -d ./dev/ ./src/",
+    "prod": "rimraf ./dist/ babel --minified -d ./dist/ ./src/"
   },
   "author": "CrypticSafe5",
   "license": "ISC",
