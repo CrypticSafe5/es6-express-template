@@ -5,19 +5,27 @@
   "main": "./dist/app.js",
   "scripts": {
     "test": "jest",
-    "clean": "rimraf ./dev rimraf ./dist",
-    "dev": "babel --preset es2015 -d ./dev ./src",
-    "prod": "babel --minified --presets es2015 -d ./dist ./src"
+    "clean": "rimraf ./dev; rimraf ./dist; rimraf ./node_modules; rimraf ./package-lock.json; npm i",
+    "dev": "rimraf ./dev; babel -d ./dev ./src",
+    "prod": "rimraf ./dist; babel --minified -d ./dist ./src"
   },
   "author": "CrypticSafe5",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "rimraf": "^3.0.0"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
   }
 }
