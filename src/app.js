@@ -1,11 +1,11 @@
-/*
-	https://www.freecodecamp.org/news/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab/
-*/
+import packageJson from '../package.json';
+import setApp from './bin/www';
 
-import app from './bin/www';
-
+const app = setApp();
+const appName = packageJson.name;
+const appVersion = packageJson.version;
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, ()=>{
-	console.log('app | online');
+	console.log(`[${appName}][${appVersion}]> online`);
 });
