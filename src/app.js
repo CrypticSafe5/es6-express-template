@@ -1,11 +1,10 @@
 import packageJson from '../package.json';
-import setApp from './bin/www';
+import setApp from './bin/util/www';
 
 const app = setApp();
-const appName = packageJson.name;
-const appVersion = packageJson.version;
+const { name, version } = packageJson;
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, ()=>{
-	console.log(`[${appName}][${appVersion}]> online`);
+	console.log(`[${name}][${version}]> online`);
 });

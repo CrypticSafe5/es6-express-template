@@ -2,12 +2,11 @@
   "name": "es6-template",
   "version": "1.0.1",
   "description": "Template for es6 express application",
-  "main": "./dist/app.js",
   "scripts": {
     "test": "jest",
-    "clean": "rimraf ./dev; rimraf ./dist; rimraf ./node_modules; rimraf ./package-lock.json; npm i",
-    "dev": "rimraf ./dev; babel -d ./dev ./src",
-    "prod": "rimraf ./dist; babel --minified -d ./dist ./src"
+    "clean": "(rimraf ./dev/ && rimraf ./dist/ && rimraf ./package-lock.json && rimraf ./node_modules/ && npm i) || npm i",
+    "dev": "rimraf ./dev/ && babel ./src/ -d ./dev/ && node ./dev/app",
+    "build": "rimraf ./dist/ && babel --minified ./src/ -d ./dist/ && node ./dist/app"
   },
   "author": "CrypticSafe5",
   "license": "ISC",
@@ -17,19 +16,12 @@
     ]
   },
   "dependencies": {
+    "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "cookie-parser": "^1.4.4",
-    "express": "^4.17.1"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "rimraf": "^3.0.0"
   }
 }
