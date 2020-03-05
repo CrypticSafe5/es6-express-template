@@ -20,7 +20,7 @@ export default class V1 {
 	}
 
 	postPing() {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			return resolve({ status: 200, payload: 'pong' });
 		});
 	}

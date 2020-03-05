@@ -5,8 +5,8 @@
   "scripts": {
     "test": "jest --collectCoverage",
     "clean": "(rimraf ./dev/ && rimraf ./dist/ && rimraf ./package-lock.json && rimraf ./node_modules/ && npm i) || npm i",
-    "dev": "babel ./src/ --delete-dir-on-start -d ./dist/ && node ./dist/index",
-    "build": "babel ./src/ --delete-dir-on-start --compact true --minified -d ./dist/ && node ./dist/index"
+    "build:dev": "babel ./src/ --delete-dir-on-start -d ./dist/ && node ./dist/index",
+    "build:prod": "babel ./src/ --delete-dir-on-start --compact true --minified -d ./dist/ && node ./dist/index"
   },
   "author": "CrypticSafe5",
   "license": "ISC",
@@ -22,7 +22,7 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "jest": "^25.1.0",
-    "request-promise": "^4.2.5",
+    "node-fetch": "^2.6.0",
     "rimraf": "^3.0.0"
   }
 }
