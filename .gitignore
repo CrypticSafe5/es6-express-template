@@ -1,9 +1,10 @@
 # ignore
 logs/*
 node_modules/*
-.DS_Store
+coverage/*
 dev/*
 dist/*
 package-lock.json
+.DS_Store
 
 # keep
