@@ -10,6 +10,8 @@ export default class V1 {
 	constructor() {
 		this.getPing = this.getPing.bind(this);
 		this.postPing = this.postPing.bind(this);
+		this.fetchGoogleLogo = this.fetchGoogleLogo.bind(this);
+
 		return this;
 	}
 
@@ -34,7 +36,7 @@ export default class V1 {
 					return reject({ status: 400, payload: 'failed' });
 				}
 			}).catch(() => {
-				return reject({ status: 400, payload: 'failed' });
+				return reject({ status: 500, payload: 'failed' });
 			});
 		});
 	}
