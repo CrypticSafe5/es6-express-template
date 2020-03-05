@@ -1,12 +1,12 @@
 {
   "name": "es6-template",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Template for es6 express application",
   "scripts": {
-    "test": "jest",
+    "test": "jest --collectCoverage",
     "clean": "(rimraf ./dev/ && rimraf ./dist/ && rimraf ./package-lock.json && rimraf ./node_modules/ && npm i) || npm i",
-    "dev": "rimraf ./dev/ && babel ./src/ -d ./dev/ && node ./dev/app",
-    "build": "rimraf ./dist/ && babel --minified ./src/ -d ./dist/ && node ./dist/app"
+    "build:dev": "babel ./src/ --delete-dir-on-start -d ./dist/ && node ./dist/index",
+    "build:prod": "babel ./src/ --delete-dir-on-start --compact true --minified -d ./dist/ && node ./dist/index"
   },
   "author": "CrypticSafe5",
   "license": "ISC",
@@ -24,6 +24,11 @@
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "jest": "^25.1.0",
+<<<<<<< HEAD
     "rimraf": "^3.0.2"
+=======
+    "node-fetch": "^2.6.0",
+    "rimraf": "^3.0.0"
+>>>>>>> fc9767ca49cbe6ebd03a91977290c35b06a84721
   }
 }
