@@ -17,18 +17,14 @@
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "jest": "^25.1.0",
-<<<<<<< HEAD
     "rimraf": "^3.0.2"
-=======
-    "node-fetch": "^2.6.0",
-    "rimraf": "^3.0.0"
->>>>>>> fc9767ca49cbe6ebd03a91977290c35b06a84721
   }
 }
