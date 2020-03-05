@@ -8,6 +8,7 @@ export default () => {
     const app = express();
     const routes = routesFunc();
     const { name } = packageJson;
+    
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
 

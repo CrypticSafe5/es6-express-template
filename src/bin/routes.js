@@ -6,10 +6,11 @@ import V1 from './controllers/V1';
  * to enable testing on the controller's
  * methods without getting nasty returns
  * alternative solutions very much so
- * welcome
+ * welcome as I hate this one. Graphql
+ * solves this problem quite well though
  */
-export function controllerWrapper(middleware, request, response) {
-    middleware(request).then((happyPath) => {
+export function controllerWrapper(controller, request, response) {
+    controller(request).then((happyPath) => {
         return response.status(happyPath.status).send(happyPath.payload);
     }).catch((notHappyPath) => {
         return response.status(notHappyPath.status).send(notHappyPath.payload);
