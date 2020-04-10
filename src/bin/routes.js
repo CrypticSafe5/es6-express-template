@@ -1,19 +1,14 @@
 import express from 'express';
+import errorCode from '../../config/statusCodes';
 import V1 from './controllers/V1';
 
-/*
- * This wrapper function exists solely
- * to enable testing on the controller's
- * methods without getting nasty returns
- * alternative solutions very much so
- * welcome as I hate this one. Graphql
- * solves this problem quite well though
- */
 export function controllerWrapper(controller, request, response) {
-    controller(request).then((happyPath) => {
-        return response.status(happyPath.status).send(happyPath.payload);
-    }).catch((notHappyPath) => {
-        return response.status(notHappyPath.status).send(notHappyPath.payload);
+    return controller(request).then((responseObject) => {
+        return response.send(responseObject);
+    }).catch((err) => {
+        if (typeof err !== 'string') err = err.toString();
+        const responseObject = errorCode[errorCode.hasOwnProperty(err) ? err : 'default'];
+        return response.status(responseObject.status).send(responseObject.message);
     });
 }
 

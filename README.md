@@ -6,3 +6,4 @@ To help with setting a baseline of express/babel with as few dependencies as pos
 - [Babel](https://babeljs.io/docs/en/) - Transpiler for turning javascript from es6 to something Nodejs can compile
 - [Jest](https://jestjs.io/docs/en/getting-started.html) - A testing framework for writing functional tests
 - [Express](http://expressjs.com/en/4x/api.html) - Framework most commonly used with Nodejs
+- [dotenv](https://www.npmjs.com/package/dotenv) - A pure JS library that allows setting of environment variables

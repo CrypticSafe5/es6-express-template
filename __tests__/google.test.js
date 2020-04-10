@@ -13,7 +13,6 @@ describe('google logo fetch', () => {
     test('fetch fail', () => {
         global.pass = false;
         getGoogleLogo().catch((err) => {
-            console.log('TEST: ', err.toString('utf8'));
             expect(err).toEqual('fail');
         });
     });

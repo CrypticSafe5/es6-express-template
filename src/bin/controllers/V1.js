@@ -4,39 +4,42 @@
  * only 1 method per route. Also, only
  * 1 class per version of APIs.
  */
+
 import { getGoogleLogo } from '../services/google';
 
 export default class V1 {
 	constructor() {
-		this.getPing = this.getPing.bind(this);
-		this.postPing = this.postPing.bind(this);
-		this.fetchGoogleLogo = this.fetchGoogleLogo.bind(this);
-
 		return this;
 	}
 
-	getPing() {
+	/*
+	 * Using the arrow function automatically
+	 * binds the method to the instance of the
+	 * class and saves a line as you then don't
+	 * have to bind it in the constructor
+	 */
+	getPing = () => {
 		return new Promise((resolve) => {
-			return resolve({ status: 200, payload: 'pong' });
+			return resolve('pong');
 		});
 	}
 
-	postPing() {
+	postPing = () => {
 		return new Promise((resolve) => {
-			return resolve({ status: 200, payload: 'pong' });
+			return resolve('pong');
 		});
 	}
 
-	fetchGoogleLogo() {
+	fetchGoogleLogo = () => {
 		return new Promise((resolve, reject) => {
 			getGoogleLogo().then((info) => {
 				if (info.statusCode === 200) {
-					return resolve({ status: 400, payload: 'success' });
+					return resolve('success');
 				} else {
-					return reject({ status: 400, payload: 'failed' });
+					return reject('Bad Request');
 				}
-			}).catch(() => {
-				return reject({ status: 500, payload: 'failed' });
+			}).catch((err) => {
+				return reject(err);
 			});
 		});
 	}

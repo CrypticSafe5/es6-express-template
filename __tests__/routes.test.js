@@ -7,12 +7,12 @@ const response = jest.fn();
 describe('testing controllerWrapper', () => {
     test('passing controllerWrapper', () => {
         controller.mockReturnValue(new Promise((resolve) => resolve(true)));
-        expect(controllerWrapper(controller, null, response)).toBeUndefined();
+        expect(controllerWrapper(controller, null, response)).toEqual(expect.anything());
     });
 
     test('fail controllerWrapper', () => {
-        controller.mockReturnValue(new Promise((resolve, reject) => reject(false)));
-        expect(controllerWrapper(controller, null, response)).toBeUndefined();
+        controller.mockReturnValue(new Promise((resolve, reject) => reject('Bad Request')));
+        expect(controllerWrapper(controller, null, response)).toEqual(expect.anything());
     });
 });
 
